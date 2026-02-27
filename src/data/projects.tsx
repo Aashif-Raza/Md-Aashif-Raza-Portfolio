@@ -6,32 +6,11 @@ import { ArrowUpRight, ExternalLink, Link2, MoveUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { ReactNode } from "react";
-import { RiNextjsFill, RiNodejsFill, RiReactjsFill } from "react-icons/ri";
-import {
-  SiChakraui,
-  SiCss3,
-  SiDocker,
-  SiEjs,
-  SiExpress,
-  SiFirebase,
-  SiHtml5,
-  SiJavascript,
-  SiMongoose,
-  SiMongodb,
-  SiMysql,
-  SiPrisma,
-  SiPython,
-  SiReactquery,
-  SiSanity,
-  SiShadcnui,
-  SiSocketdotio,
-  SiSupabase,
-  SiTailwindcss,
-  SiThreedotjs,
-  SiTypescript,
-  SiVuedotjs,
-} from "react-icons/si";
-import { TbBrandFramerMotion } from "react-icons/tb";
+
+import { RiNextjsFill, RiNodejsFill, RiReactjsFill } from 'react-icons/ri';
+import { SiChakraui, SiCss3, SiPython, SiPrisma, SiMysql, SiMongodb, SiMongoose, SiExpress, SiReactquery, SiShadcnui, SiTailwindcss, SiDocker, SiFirebase, SiSocketdotio, SiJavascript, SiHtml5, SiEjs, SiTypescript, SiVuedotjs, SiSanity, SiThreedotjs, SiSupabase } from 'react-icons/si';
+import { TbBrandFramerMotion } from 'react-icons/tb';
+
 const BASE_PATH = "/assets/projects-screenshots";
 
 const ProjectsLinks = ({ live, repo }: { live: string; repo?: string }) => {
@@ -508,3 +487,4 @@ const projects: Project[] = [
   },
 ];
 export default projects;
+

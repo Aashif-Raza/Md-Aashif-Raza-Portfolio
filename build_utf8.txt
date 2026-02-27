@@ -1,0 +1,82 @@
+﻿
+> portfolio@0.1.0 build
+> next build
+
+  Γû▓ Next.js 14.2.3
+  - Environments: .env
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully
+   Linting and checking validity of types ...
+
+./src/app/about/page.tsx
+244:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/animated-background.tsx
+157:6  Warning: React Hook useEffect has a missing dependency: 'splineApp'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+209:6  Warning: React Hook useEffect has missing dependencies: 'getBongoAnimation', 'getKeycapsAnimation', 'handleGsapAnimations', and 'handleSplineInteractions'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+282:6  Warning: React Hook useEffect has missing dependencies: 'bongoAnimation' and 'keycapAnimtations'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+292:6  Warning: React Hook useEffect has missing dependencies: 'keyboardRevealed', 'revealKeyCaps', and 'router'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/components/header/nav/index.tsx
+45:9  Warning: Image elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./src/components/nyan-cat.tsx
+80:6  Warning: React Hook React.useEffect has a missing dependency: 'randY'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+94:7  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/Particles.tsx
+42:6  Warning: React Hook useEffect has missing dependencies: 'animate' and 'initCanvas'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+46:6  Warning: React Hook useEffect has a missing dependency: 'onMouseMove'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+50:6  Warning: React Hook useEffect has a missing dependency: 'initCanvas'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/components/realtime/remote-cursors.tsx
+42:6  Warning: React Hook useEffect has a missing dependency: 'setUsers'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+52:6  Warning: React Hook useEffect has a missing dependency: 'handleMouseMove'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+114:6  Warning: React Hook useEffect has a missing dependency: 'socketId'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/components/smooth-scroll.tsx
+21:6  Warning: React Hook useEffect has a missing dependency: 'lenis'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/components/ui/animated-modal.tsx
+79:6  Warning: React Hook useEffect has a missing dependency: 'setOpen'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/components/ui/ElasticCursor.tsx
+95:6  Warning: React Hook useLayoutEffect has a missing dependency: 'set'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+115:6  Warning: React Hook useCallback has missing dependencies: 'pos.x', 'pos.y', 'set', 'vel.x', and 'vel.y'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+180:6  Warning: React Hook useLayoutEffect has missing dependencies: 'cursorMoved', 'isMobile', 'loop', 'pos', and 'vel'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/components/ui/floating-dock.tsx
+123:27  Warning: The ref value 'timer.current' will likely have changed by the time this effect cleanup function runs. If this ref points to a node rendered by React, copy 'timer.current' to a variable inside the effect, and use that variable in the cleanup function.  react-hooks/exhaustive-deps
+125:6  Warning: React Hook useEffect has a missing dependency: 'controls'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+node.exe : Failed to compile.
+At C:\Program Files\nodejs\npm.ps1:29 char:3
++   & $NODE_EXE $NPM_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Failed to compi 
+   le.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+./src/contexts/contexts/socketio.tsx:11:38
+Type error: Cannot find module 
+'../lib/generate-random-cursor' or its corresponding type 
+declarations.
+
+[0m [90m  9 |[39m } [36mfrom[39m 
+[32m"react"[39m[33m;[39m[0m
+[0m [90m 10 |[39m [36mimport[39m { io[33m,[39m 
+[33mSocket[39m } [36mfrom[39m 
+[32m"socket.io-client"[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m 11 |[39m [36mimport[39m { 
+generateRandomCursor } [36mfrom[39m 
+[32m"../lib/generate-random-cursor"[39m[0m
+[0m [90m    |[39m                                      
+[31m[1m^[22m[39m[0m
+[0m [90m 12 |[39m[0m
+[0m [90m 13 |[39m [36mexport[39m type [33mUser[39m 
+[33m=[39m {[0m
+[0m [90m 14 |[39m   socketId[33m:[39m 
+string[33m;[39m[0m

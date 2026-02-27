@@ -1,5 +1,5 @@
 "use client";
-import { ChevronRight, Loader2 } from "lucide-react";
+import { Check, ChevronRight, Loader2 } from "lucide-react";
 import React from "react";
 import { Label } from "./ui/label";
 import { Input } from "./ui/ace-input";
@@ -9,10 +9,6 @@ import { useToast } from "./ui/use-toast";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
 import emailjs from "@emailjs/browser";
-
-const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "";
-const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "";
-const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "";
 
 const ContactForm = () => {
   const [fullName, setFullName] = React.useState("");
@@ -25,42 +21,27 @@ const ContactForm = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
-      toast({
-        title: "Configuration missing",
-        description:
-          "Add NEXT_PUBLIC_EMAILJS_SERVICE_ID, TEMPLATE_ID, and PUBLIC_KEY to .env.local",
-        variant: "destructive",
-        className: cn(
-          "top-0 w-full flex justify-center fixed md:max-w-7xl md:top-4 md:right-4"
-        ),
-      });
-      return;
-    }
     setLoading(true);
     try {
-      // Match your EmailJS template: {{name}}, {{email}}, {{message}}
-      const templateParams = {
-        name: fullName,
-        email,
-        message,
-        from_name: fullName,
-        reply_to: email,
-        user_name: fullName,
-        user_email: email,
-      };
       await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        templateParams,
-        EMAILJS_PUBLIC_KEY
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          from_name: fullName,
+          name: fullName,
+          reply_to: email,
+          email: email,
+          message: message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
       toast({
-        title: "Message sent!",
+        title: "Thank you!",
         description: "I'll get back to you as soon as possible.",
         variant: "default",
         className: cn("top-0 mx-auto flex fixed md:top-4 md:right-4"),
       });
+      setLoading(false);
       setFullName("");
       setEmail("");
       setMessage("");
@@ -69,19 +50,16 @@ const ContactForm = () => {
         clearTimeout(timer);
       }, 1000);
     } catch (err) {
-      const message =
-        err instanceof Error ? err.message : "Failed to send. Check your EmailJS keys and template.";
       toast({
-        title: "Could not send",
-        description: message,
+        title: "Error",
+        description: "Something went wrong! Please check the fields.",
         className: cn(
           "top-0 w-full flex justify-center fixed md:max-w-7xl md:top-4 md:right-4"
         ),
         variant: "destructive",
       });
-    } finally {
-      setLoading(false);
     }
+    setLoading(false);
   };
   return (
     <form className="min-w-7xl mx-auto sm:mt-4" onSubmit={handleSubmit}>

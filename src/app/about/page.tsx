@@ -1,7 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { DiMongodb, DiNpm } from "react-icons/di";
+import { config } from "@/data/config";
+import { DiMongodb, DiNginx, DiNpm, DiPostgresql, DiVim } from "react-icons/di";
 import {
+  FaAws,
   FaCss3,
   FaDocker,
   FaEnvelope,
@@ -9,28 +11,27 @@ import {
   FaGithub,
   FaHtml5,
   FaLinkedin,
+  FaLinux,
   FaNodeJs,
   FaPhone,
   FaReact,
+  FaVuejs,
   FaYarn,
 } from "react-icons/fa6";
 import {
   RiFirebaseFill,
   RiJavascriptFill,
+  RiNextjsFill,
   RiTailwindCssFill,
 } from "react-icons/ri";
 import {
   SiExpress,
   SiJavascript,
   SiKubuntu,
-  SiNetlify,
   SiPm2,
   SiPrettier,
-  SiSqlite,
   SiTypescript,
   SiVercel,
-  SiVisualstudiocode,
-  SiVite,
 } from "react-icons/si";
 import { VscCode } from "react-icons/vsc";
 
@@ -45,26 +46,20 @@ export const dynamic = 'force-dynamic';
 const CONTACT_LINKS = [
   {
     name: "Email",
-    content: "dev.huzaif@gmail",
-    href: "mailto:dev.huzaif@gmail.com",
+    content: config.email,
+    href: `mailto:${config.email}`,
     icon: <FaEnvelope height={"50px"} />,
   },
   {
-    name: "Phone",
-    content: "1234567890",
-    href: "tel:1234567890",
-    icon: <FaPhone height={"50px"} />,
-  },
-  {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/md-aashif-raza",
-    content: "/md-aashif-raza",
+    href: config.social.linkedin,
+    content: `/${config.social.linkedin.split("/").pop()}`,
     icon: <FaLinkedin height={"50px"} />,
   },
   {
     name: "GitHub",
-    href: "https://github.com/Aashif-Raza",
-    content: "/Aashif-Raza",
+    href: config.social.github,
+    content: `/${config.social.github.split("/").pop()}`,
     icon: <FaGithub height={"50px"} />,
   },
 ];
@@ -113,10 +108,28 @@ const TOOLS = [
     color: "#2496ed",
   },
   {
+    name: "NginX",
+    content: "Next.js is a React framework for production",
+    icon: <DiNginx size={"50px"} color="#008000" />,
+    color: "#008000",
+  },
+  {
+    name: "Vue.js",
+    content: "Next.js is a React framework for production",
+    icon: <FaVuejs size={"50px"} color="#41b883" />,
+    color: "#41b883",
+  },
+  {
     name: "Express.js",
     content: "Next.js is a React framework for production",
     icon: <SiExpress size={"50px"} color="#fff" />,
     color: "#000000",
+  },
+  {
+    name: "PostgreSQL",
+    content: "Next.js is a React framework for production",
+    icon: <DiPostgresql size={"50px"} color="#336791" />,
+    color: "#336791",
   },
   {
     name: "MongoDB",
@@ -151,8 +164,14 @@ const TOOLS = [
   {
     name: "VS Code",
     content: "Next.js is a React framework for production",
-    icon: <SiVisualstudiocode size={"50px"} color="#007acc" />,
+    icon: <VscCode size={"50px"} color="#007acc" />,
     color: "#007acc",
+  },
+  {
+    name: "VIM",
+    content: "Next.js is a React framework for production",
+    icon: <DiVim size={"50px"} color="#fff" />,
+    color: "#000000",
   },
   {
     name: "Prettier",
@@ -179,6 +198,12 @@ const TOOLS = [
     color: "#000000",
   },
   {
+    name: "Linux",
+    content: "Next.js is a React framework for production",
+    icon: <FaLinux size={"50px"} color="#fff" />,
+    color: "#000000",
+  },
+  {
     name: "Kubuntu",
     content: "Next.js is a React framework for production",
     // give me correct color for  kubuntu
@@ -192,25 +217,117 @@ const TOOLS = [
     color: "#000000",
   },
   {
-    name: "Vite",
-    content: "Lightning-fast build tool and dev server for modern web apps",
-    icon: <SiVite size={"50px"} color="#646cff" />,
-    color: "#646cff",
-  },
-  {
-    name: "SQL",
-    content: "Structured query language for managing relational databases",
-    icon: <SiSqlite size={"50px"} color="#336791" />,
-    color: "#336791",
-  },
-  {
-    name: "Netlify",
-    content: "Modern web development platform with seamless deployments",
-    icon: <SiNetlify size={"50px"} color="#00c7b7" />,
-    color: "#00c7b7",
+    name: "AWS",
+    content: "Next.js is a React framework for production",
+    icon: <FaAws size={"50px"} color="#3f51b5" />,
+    color: "#000000",
   },
 ];
-           
+
+function Page() {
+  const [toolsLoaded, setToolsLoaded] = useState(false);
+  useEffect(() => {
+    setToolsLoaded(true);
+  }, []);
+  return (
+    <div className="container mx-auto px-4 md:px-[50px] xl:px-[200px] text-zinc-300 pt-20 pb-20">
+      <div className="flex flex-col lg:flex-row gap-5">
+        <aside className="w-full md:basis-1/4">
+          <div
+            className="p-4 md:p-8 lg:p-10 rounded-2xl border-[.5px] border-zinc-600"
+            style={{
+              backdropFilter: "blur(2px)",
+            }}
+          >
+            <div className="flex flex-row lg:flex-col items-center">
+              <div className="flex justify-center items-center lg:w-full lg:aspect-square bg-zinc-800 rounded-xl lg:mb-5">
+                <img
+                  className="rounded-full p-4 lg:p-10 w-[100px] md:w-[150px] lg:w-[200px] aspect-square  bg-zinc-800"
+                  alt="me"
+                  src="/assets/me.jpg"
+                />
+              </div>
+              <div className="flex flex-col gap-3 lg:items-center ml-10 md:ml-20 lg:ml-0">
+                <p className="text-center text-xl">{config.author}</p>
+                <div className="text-xs bg-zinc-700 w-fit px-3 py-1 rounded-full">
+                  Web Developer
+                </div>
+              </div>
+            </div>
+            <div className="hidden lg:block">
+              <hr className="my-10 border-zinc-600" />
+              <ul className="flex flex-col gap-3">
+                {CONTACT_LINKS.map((link) => (
+                  <li key={link.name}>
+                    <a
+                      className="flex items-center px-3 gap-3 w-full h-12 border-zinc-700 bg-zinc-800 hover:border-zinc-600 border-[.5px] rounded-md "
+                      href={link.href}
+                    >
+                      <div className="w-8">{link.icon}</div>
+                      <div className="flex flex-col">
+                        <div className="text-sm">{link.name}</div>
+                        <div className="text-xs text-zinc-500">
+                          {link.content}
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </aside>
+        <main className="basis-3/4 w-[500px]">
+          <div
+            className="p-10 border-[.5px] rounded-md border-zinc-600"
+            style={{ backdropFilter: "blur(2px)" }}
+          >
+            <h1 className="text-3xl mb-10 lg:md-20">About me</h1>
+            <p className="mb-10 text-roboto">
+              Hey there! I&apos;m {config.author.split(" ")[0]}, a Fullstack developer passionate about
+              creating meaningful digital experiences. With great experience in Web
+              development, I thrive on turning ideas into reality through coding
+              and design. My journey began with a fascination for technology and
+              a drive to make a positive impact.
+            </p>
+            <p className="mb-10">
+              When I&apos;m not coding, you can find me [Your
+              Interests/Hobbies], exploring new technologies, or sipping coffee
+              while brainstorming my next project.
+            </p>
+            <h1 className="text-3xl mb-10 lg:md-20">Stuff I use</h1>
+            <div className="mb-5">
+              {!toolsLoaded ? (
+                <p className="h-[100px]"></p>
+              ) : (
+                <Splide
+                  options={{
+                    type: "loop",
+                    interval: 2000,
+                    autoplay: true,
+                    pagination: false,
+                    speed: 2000,
+                    perPage: 5,
+                    perMove: 1,
+                    rewind: true,
+                    easing: "cubic-bezier(0.25, 1, 0.5, 1)",
+                    arrows: false,
+                  }}
+                  aria-label="My Favorite Images"
+                >
+                  {TOOLS.reverse().map((tool) => (
+                    <SplideSlide key={tool.name}>
+                      <div
+                        key={tool.name}
+                        className="w-fit p-2 border-[.5px] border-zinc-600 rounded-md"
+                      >
+                        {tool.icon}
+                      </div>
+                    </SplideSlide>
+                  ))}
+                </Splide>
+              )}
+            </div>
             {/* <div className="">
               <Splide
                 options={{
@@ -239,7 +356,11 @@ const TOOLS = [
                 ))}
               </Splide>
             </div> */}
-     
+          </div>
+        </main>
+      </div>
+    </div>
+  );
+}
 
-
-// export default Page;
+export default Page;

@@ -8,6 +8,7 @@ const LINKS = [
   { name: "Projects", href: "/projects" },
   { name: "Contact", href: "/contact" },
   { name: "About", href: "/about" },
+  { name: "Blog", href: "/blog" },
 ];
 
 const Header = () => {

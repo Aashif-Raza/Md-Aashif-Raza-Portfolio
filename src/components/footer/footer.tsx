@@ -12,23 +12,23 @@ function Footer() {
       <p className="text-xs text-gray-500 dark:text-gray-400">
         © {year} {config.author}. All rights reserved.
       </p>
-      <div className="flex items-center gap-4">
-        <nav className="flex gap-4 sm:gap-6 z-10">
-        {footer.map((link, index) => {
-          const { title, href } = link;
-
-          return (
-            <Link
-              className="text-xs underline-offset-4 hover:underline"
-              href={href}
-              key={`l_${index}`}
-            >
-              <Button variant={"link"}>{title}</Button>
-            </Link>
-          );
-        })}
-        </nav>
+      <div className="flex w-full items-center justify-between sm:w-auto sm:ml-auto">
         <SocialMediaButtons />
+        <nav className="flex gap-4 sm:gap-6 z-10">
+          {footer.map((link, index) => {
+            const { title, href } = link;
+
+            return (
+              <Link
+                className="text-xs underline-offset-4 hover:underline"
+                href={href}
+                key={`l_${index}`}
+              >
+                <Button variant={"link"}>{title}</Button>
+              </Link>
+            );
+          })}
+        </nav>
       </div>
     </footer>
   );

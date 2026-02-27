@@ -39,7 +39,6 @@ export default function Footer() {
           <span>Images:</span> Unsplash
         </motion.li>
       </ul>
-      {/* newsletter removed */}
     </div>
   );
 }

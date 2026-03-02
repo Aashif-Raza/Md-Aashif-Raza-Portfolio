@@ -19,3 +19,66 @@ At C:\Program Files\nodejs\npm.ps1:29 char:3
 'yarn' is not recognized as an internal or external command,
 operable program or batch file.
  Γ£ô Ready in 2.3s
+ Γùï Compiling / ...
+ Γ£ô Compiled / in 9.5s (1692 modules)
+ ΓÜá metadataBase property in metadata export is not set for 
+resolving social open graph or twitter images, using 
+"http://localhost:3002". See https://nextjs.org/docs/app/api-
+reference/functions/generate-metadata#metadatabase
+ GET / 200 in 10506ms
+ Γ£ô Compiled in 1326ms (780 modules)
+ Γ£ô Compiled in 3.1s (780 modules)
+ Γ£ô Compiled in 1403ms (780 modules)
+ Γ£ô Compiled in 1923ms (782 modules)
+ Γ¿» ./src/components/sections/about-me.tsx
+Error: 
+  [31mx[0m the name `motion` is defined multiple times
+   ,-[[36;1;4mC:\Users\MD AASHIF RAZA\OneDrive\Desktop\Portf
+olio\Md-Aashif-Raza-Portfolio\src\components\sections\about-m
+e.tsx[0m:1:1]
+ [2m1[0m | "use client";
+ [2m2[0m | 
+ [2m3[0m | import Image from "next/image";
+ [2m4[0m | import { motion, useInView } from 
+"framer-motion";
+   : [31;1m         ^^^|^^[0m
+   :             [31;1m`-- [31;1mprevious definition of 
+`motion` here[0m[0m
+ [2m5[0m | import { cn } from "@/lib/utils";
+ [2m6[0m | import { motion, useInView } from 
+"framer-motion";
+   : [33;1m         ^^^|^^[0m
+   :             [33;1m`-- [33;1m`motion` redefined 
+here[0m[0m
+ [2m7[0m | 
+ [2m8[0m | export default function AboutMe() {
+ [2m8[0m |     const ref = useRef(null);
+   `----
+
+  [31mx[0m the name `useInView` is defined multiple times
+   ,-[[36;1;4mC:\Users\MD AASHIF RAZA\OneDrive\Desktop\Portf
+olio\Md-Aashif-Raza-Portfolio\src\components\sections\about-m
+e.tsx[0m:1:1]
+ [2m1[0m | "use client";
+ [2m2[0m | 
+ [2m3[0m | import Image from "next/image";
+ [2m4[0m | import { motion, useInView } from 
+"framer-motion";
+   : [31;1m                 ^^^^|^^^^[0m
+   :                      [31;1m`-- [31;1mprevious 
+definition of `useInView` here[0m[0m
+ [2m5[0m | import { cn } from "@/lib/utils";
+ [2m6[0m | import { motion, useInView } from 
+"framer-motion";
+   : [33;1m                 ^^^^|^^^^[0m
+   :                      [33;1m`-- [33;1m`useInView` 
+redefined here[0m[0m
+ [2m7[0m | 
+ [2m8[0m | export default function AboutMe() {
+ [2m8[0m |     const ref = useRef(null);
+   `----
+
+Import trace for requested module:
+./src/components/sections/about-me.tsx
+./src/app/page.tsx
+ Γ£ô Compiled in 797ms (782 modules)

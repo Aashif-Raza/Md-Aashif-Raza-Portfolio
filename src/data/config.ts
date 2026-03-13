@@ -1,19 +1,23 @@
 const config = {
-  title: "I'm Md Aashif Raza | Full-Stack Developer",
+  title: "Md Aashif Raza | Full-Stack Developer",
   description: {
-    long: "Explore the portfolio of Huzaif, a full-stack developer and creative technologist specializing in interactive web experiences, 3D animations, and innovative projects. Discover my latest work, including Coding Ducks, The Booking Desk, Ghostchat, and more. Let's build something amazing together!",
+    long: "Explore the portfolio of Md Aashif Raza, a full-stack developer and creative technologist specializing in interactive web experiences, real-time communication, and innovative projects. Discover my latest work, including ConnectUs, WanderLust, Deep Packet Inspection, and more. Let's build something amazing together!",
     short:
-      "Discover the portfolio of Huzaif, a full-stack developer creating interactive web experiences and innovative projects.",
+      "Discover the portfolio of Md Aashif Raza, a full-stack developer creating interactive web experiences and innovative projects.",
   },
   keywords: [
-    "Huzaif",
+    "Md Aashif Raza",
+    "Aashif Raza",
     "portfolio",
     "full-stack developer",
     "creative technologist",
     "web development",
     "interactive websites",
-    "Coding Ducks",
-    "The Booking Desk",
+    "ConnectUs",
+    "WanderLust",
+    "Deep Packet Inspection",
+    "TrendNest",
+    "FlavourFi",
     "web design",
     "GSAP",
     "React",
@@ -23,7 +27,7 @@ const config = {
   ],
   author: "Md Aashif Raza",
   email: "aasifreja63442@gmail.com",
-  site: "https://aashif-raza.vercel.app",
+  site: "https://md-aashif-raza-portfolio.vercel.app",
   ogImg: "/assets/seo/og-image.png",
   social: {
     github: "https://github.com/Aashif-Raza",

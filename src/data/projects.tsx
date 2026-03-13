@@ -243,11 +243,49 @@ export type Project = {
 };
 const projects: Project[] = [
   {
+    id: "deep-packet-inspection",
+    category: "Backend Engine",
+    title: "Deep Packet Inspection",
+    src: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop",
+    screenshots: [],
+    skills: {
+      frontend: [],
+      backend: [PROJECT_SKILLS.node, PROJECT_SKILLS.js],
+    },
+    live: "#",
+    github: "https://github.com/Aashif-Raza/Deep-Packet-Inspection",
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono ">
+            A Deep Packet Inspection (DPI) engine built with Node.js to examine the
+            contents of network packets and extract Server Name Indication (SNI)
+            from TLS handshakes. Features an event-driven architecture mimicking
+            production systems capable of parsing, classifying, blocking, and reporting.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
+          <SlideShow
+            images={[
+              "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop",
+              "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=600&fit=crop"
+            ]}
+          />
+          <TypographyH3 className="my-4 mt-8">Features</TypographyH3>
+          <p className="font-mono mb-2">
+            Pcap file parsing without external C++ bindings, TLS Client Hello parsing,
+            SNI extraction, flow-based request tracking, and a rule-based blocking
+            engine capable of filtering traffic.
+          </p>
+        </div>
+      );
+    },
+  },
+  {
     id: "wanderlust",
     category: "Travel & Accommodation",
     title: "WanderLust",
-    src: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&h=600&fit=crop",
-    screenshots: ["1.png"],
+    src: "/assets/projects-screenshots/wanderlust/main.png",
+    screenshots: ["main.png"],
     skills: {
       frontend: [
         PROJECT_SKILLS.html,
@@ -278,9 +316,7 @@ const projects: Project[] = [
           <ProjectsLinks live={this.live} repo={this.github} />
           <SlideShow
             images={[
-              "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&h=600&fit=crop",
-              "https://images.unsplash.com/photo-1566073771259-6a0e3b6b2f7a?w=800&h=600&fit=crop",
-              "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&h=600&fit=crop",
+              "/assets/projects-screenshots/wanderlust/main.png",
             ]}
           />
           <TypographyH3 className="my-4 mt-8">Browse & Book</TypographyH3>
@@ -300,7 +336,7 @@ const projects: Project[] = [
     title: "ConnectUs",
     src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
     screenshots: ["1.png", "2.png"],
-    live: "https://github.com/Aashif-Raza/ConnectUs",
+    live: "https://connect-us-001.netlify.app/",
     github: "https://github.com/Aashif-Raza/ConnectUs",
     skills: {
       frontend: [
